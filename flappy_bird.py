@@ -5,7 +5,7 @@ Sky()
 bird = Animation('assets/bird_blue', scale=2, collider='box')
 
 camera.orthographic = True
-camera.fov = 20
+camera.fov = 30
 
 def update():
     bird.y = bird.y - 0.07
@@ -16,8 +16,11 @@ def update():
 
 def input(key):
     if key == 'space':
-        bird.y = bird.y + 3
-        
+        bird.y = bird.y + 2
+
+    if key == 'q':
+        quit()
+
 pipes = []
 
 pipe = Entity(model='quad', 
