@@ -12,7 +12,6 @@ def update():
     for pipe in pipes:
         pipe.x = pipe.x - 0.05
     if bird.y < -10 or bird.y > 10 or bird.intersects().hit:
-        print("Spiel wird beendet.")
         quit() 
 
 def input(key):
