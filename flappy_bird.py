@@ -11,12 +11,9 @@ def update():
     bird.y = bird.y - 0.07
     for pipe in pipes:
         pipe.x = pipe.x - 0.05
-    if bird.y < -10:
+    if bird.y < -10 or bird.y > 10 or bird.intersects().hit:
+        print("Spiel wird beendet.")
         quit() 
-    if bird.y > 10:
-        quit()
-    if bird.intersects().hit:
-        quit()
 
 def input(key):
     if key == 'space':
@@ -34,7 +31,7 @@ pipe = Entity(model='quad',
 def createPipes():
     newY = random.randint(4, 12)
     newPipe = duplicate(pipe, y=newY)
-    newPipe2 = duplicate(pipe, y=newY-22)
+    newPipe2 = duplicate(pipe, y=newY-23)
     pipes.append(newPipe)
     pipes.append(newPipe2)
     invoke(createPipes, delay=5)
